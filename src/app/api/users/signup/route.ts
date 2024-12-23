@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
         //validatin
         console.log(reqBody);
 
-        await User.findone({ email })
+      const user =  await User.findone({ email })
         if (user) {
             return NextResponse.json({ error: "User already exists" }, { status: 400 })
         }
